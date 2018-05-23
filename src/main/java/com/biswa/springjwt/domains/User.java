@@ -1,6 +1,7 @@
 package com.biswa.springjwt.domains;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import org.joda.time.DateTime;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -16,6 +17,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+
 import java.sql.Timestamp;
 import java.util.Collection;
 import java.util.List;
@@ -165,5 +167,12 @@ public class User implements UserDetails {
     public boolean isCredentialsNonExpired() {
         return true;
     }
+
+	public User(String username, String password, List<Authority> authorities) {
+		super();
+		this.username = username;
+		this.password = password;
+		this.authorities = authorities;
+	}
 
 }

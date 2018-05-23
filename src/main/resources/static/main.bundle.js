@@ -598,7 +598,6 @@ var LoginComponent = /** @class */ (function () {
         this.router = router;
         this.cookie = cookie;
         this.user = {
-            grant_type: '',
             username: '',
             password: ''
         };
@@ -613,19 +612,7 @@ var LoginComponent = /** @class */ (function () {
     LoginComponent.prototype.ngOnInit = function () {
     };
     LoginComponent.prototype.login = function () {
-        var _this = this;
-        // var reqHeader = new HttpHeaders({authorization:'Basic c2thdGVyaWs6cGFzcw=='});
-        this.user.grant_type = 'password';
-        // var reqHeader = new HttpHeaders({username:this.user.username, password: this.user.password, grant_type: this.user.grant_type})
-        this.http.post('/oauth/token?grant_type=' + this.user.grant_type + '&username=' + this.user.username + '&password=' + this.user.password, {})
-            .subscribe(function (response) {
-            console.log(response);
-            _this._data.access_key = response;
-            _this.cookie.set('access_token', _this._data.access_key.access_token);
-            _this.cookie.set('refresh_token', _this._data.access_key.refresh_token);
-            _this.http.get('/user').subscribe(function (user) { return console.log(user); });
-            _this.router.navigateByUrl('legends');
-        });
+        this.http.post('/auth/login', this.user).subscribe(function (res) { return console.log(res); });
     };
     LoginComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({

@@ -13,7 +13,7 @@ public class HomeController {
 	
 	
 	@RequestMapping("/")
-	public String getHeroes(){
+	public String getHero(){
 		return "";
 	}
 	
