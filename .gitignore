@@ -25,5 +25,3 @@
 /.nb-gradle/
 
 
-### ignore properties file ###
-app.properties
