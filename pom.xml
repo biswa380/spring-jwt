@@ -95,11 +95,11 @@
 						</executions>
 						<configuration>
 							<executable>ng</executable>
-							<workingDirectory>\src\main\resources\ng5</workingDirectory>
+							<workingDirectory>E:\workspace-sts\spring-jwt\src\main\resources\ng5</workingDirectory>
 							<arguments>
 								<argument>build</argument>
 								<argument>-op</argument>
-								<argument>\src\main\resources\static</argument>
+								<argument>E:\workspace-sts\spring-jwt\src\main\resources\static</argument>
 								<argument>-base-href=/spring-jwt/</argument>
 							</arguments>
 						</configuration>

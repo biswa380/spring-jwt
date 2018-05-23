@@ -1,6 +1,7 @@
 package com.biswa.springjwt.domains;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import org.springframework.security.core.GrantedAuthority;
 
 import javax.persistence.*;
@@ -48,5 +49,15 @@ public class Authority implements GrantedAuthority {
     public void setId(Long id) {
         this.id = id;
     }
+
+	public Authority(String name) {
+		super();
+		this.name = name;
+	}
+
+	public Authority() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
 }

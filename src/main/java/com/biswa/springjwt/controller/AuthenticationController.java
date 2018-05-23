@@ -30,12 +30,14 @@ import com.biswa.springjwt.security.JwtAuthenticationRequest;
 import com.biswa.springjwt.security.TokenHelper;
 import com.biswa.springjwt.services.CustomUserDetailsService;
 
+
+
 /**
- * Created by fan.jin on 2017-05-10.
+ * Created by biswa
  */
 
 @RestController
-@RequestMapping( value = "/auth", produces = MediaType.APPLICATION_JSON_VALUE )
+//@RequestMapping( value = "/auth", produces = MediaType.APPLICATION_JSON_VALUE )
 public class AuthenticationController {
 
     @Autowired
@@ -50,7 +52,7 @@ public class AuthenticationController {
     @Autowired
     private DeviceProvider deviceProvider;
 
-    @RequestMapping(value = "/login", method = RequestMethod.POST)
+    @RequestMapping(value = "auth/login", method = RequestMethod.POST)
     public ResponseEntity<?> createAuthenticationToken(
             @RequestBody JwtAuthenticationRequest authenticationRequest,
             HttpServletResponse response,
@@ -76,7 +78,7 @@ public class AuthenticationController {
         return ResponseEntity.ok(new UserTokenState(jws, expiresIn));
     }
 
-    @RequestMapping(value = "/refresh", method = RequestMethod.POST)
+    @RequestMapping(value = "auth/refresh", method = RequestMethod.POST)
     public ResponseEntity<?> refreshAuthenticationToken(
             HttpServletRequest request,
             HttpServletResponse response,
@@ -100,7 +102,7 @@ public class AuthenticationController {
         }
     }
 
-    @RequestMapping(value = "/change-password", method = RequestMethod.POST)
+    @RequestMapping(value = "auth/change-password", method = RequestMethod.POST)
     @PreAuthorize("hasRole('USER')")
     public ResponseEntity<?> changePassword(@RequestBody PasswordChanger passwordChanger) {
         userDetailsService.changePassword(passwordChanger.oldPassword, passwordChanger.newPassword);
